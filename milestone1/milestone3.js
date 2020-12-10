@@ -53,9 +53,59 @@ $(document).ready(function () {
 
     print2();
 
+    
+
+    //estrapoliamo i tipi di icone
+    const tipiTemp = icone.map(obj => obj.family);
+    const tipi = tipiTemp.filter((elem, pos) => tipiTemp.indexOf(elem) == pos); //soluzione per filtrare i duplicati
+    console.log(tipi);
+    
+    
+
+    //aggiungiamo i tipi alla select
+
+    addToSelect();
+
+    //al change mostriamo solo le icone filtrate
+
+    const animals = icone.filter(el => el.family == 'animals');
+    const food = icone.filter(el => el.family == 'food');
+    const people = icone.filter(el => el.family == 'people');
+
+    $('select#type').change(function () { 
+        let optionSelected = $('select#type option:selected').text();
+        switch (optionSelected) {
+            case 'animals':
+                $('.container .icons div').remove();
+                print3(animals);
+                break;
+            case 'food':
+                $('.container .icons div').remove();
+                print3(food);
+                break;
+            case 'people':
+                $('.container .icons div').remove();
+                print3(people);
+            break;
+            case 'All':
+                $('.container .icons div').remove();
+                print2();
+                break;
+        }
+    });
+
+
+
+    //mostriamo come passare un parametro a change e contemporaneamente destrutturiamo
+
+
+
+/* ---- FUNCTIONS ----*/
+
+
     function print2() {
         icone.forEach(element => {
-    
+
             //destructuring e assegnazione markup
             const {name, prefix, type, color} = element;
             const markup = `<div>
@@ -68,26 +118,32 @@ $(document).ready(function () {
         });
     }
 
-    //estrapoliamo i tipi di icone
-    
-
-    //aggiungiamo i tipi alla select
-
-    // function addToSelect() {
-    //     const select = $('select#type');
-    //     const tipi
-    //     const markup = `<option value="">${tipi}</option>`
-    // }
+    function addToSelect() {
+        tipi.forEach(element => {
+            const select = $('select#type');
+            const markup = `<option value="${element}">${element}</option>`;
+            //appendiamo
+            select.append(markup);
+        });
+    }
 
 
+    function print3(arr) {
+        arr.forEach(element => {
+
+            //destructuring e assegnazione markup
+            const {name, prefix, type, color} = element;
+            const markup = `<div>
+                <i class="${prefix} ${type}" style="color:${color}"></i>
+                <div class="title">${name.toUpperCase()}</div>
+            </div>`;
+            
+            //appendiamo
+            iconSection.append(markup); 
+        });
+    }
 
 
 
-    //al change mostriamo solo le icone filtrate
-    //mostriamo come passare un parametro a change e contemporaneamente destrutturiamo
-
-
-
-/* ---- FUNCTIONS ----*/
 
 });
