@@ -28,18 +28,29 @@ $(document).ready(function () {
 
 //inseriamo le icone nel container (possiamo creare una funzione tipo print() per inserire gli elementi e richiamarla qui)
 
-    icone.forEach(element => {
 
-        //destructuring
-        const {name, prefix, type} = element;
-        const markup = `<div>
-            <i class="${prefix} ${type}"></i>
-            <div class="title">${name.toUpperCase()}</div>
-        </div>`;
-        
-        //appendiamo
-        iconSection.append(markup); 
-    });
+    print();
+
+
+
+
+
+    //funzione
+    function print() {
+        icone.forEach(element => {
+    
+            //destructuring e assegnazione markup
+            const {name, prefix, type} = element;
+            const markup = `<div>
+                <i class="${prefix} ${type}"></i>
+                <div class="title">${name.toUpperCase()}</div>
+            </div>`;
+            
+            //appendiamo
+            iconSection.append(markup); 
+        });
+    }
+
 
 
 
