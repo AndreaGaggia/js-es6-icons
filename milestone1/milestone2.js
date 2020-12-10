@@ -41,16 +41,16 @@ $(document).ready(function () {
 
 
 //aggiungiamo dei colori usando una funzione
-    icone.map((obj) => { //non funziona se assegno il metodo a nuova variabile - forse perché ho usato class e costruttore??
-        switch (obj.family) {
+    icone.map((icona) => { //non funziona se assegno il metodo a nuova variabile - forse perché ho usato class e costruttore??
+        switch (icona.family) {
             case 'animals':
-                obj.color = blue;
+                icona.color = blue;
                 break;
             case 'food':
-                obj.color = orange;
+                icona.color = orange;
                 break;
             case 'people':
-                obj.color = purple;
+                icona.color = purple;
                 break;
         }
     });

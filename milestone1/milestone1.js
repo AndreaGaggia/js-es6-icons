@@ -18,7 +18,14 @@ $(document).ready(function () {
         new Icona('dragon', 'fas', 'fa-dragon', 'animals'),
         new Icona('horse', 'fas', 'fa-horse', 'animals'),
         new Icona('hippo', 'fas', 'fa-hippo', 'animals'),
-        new Icona('fish', 'fas', 'fa-fish', 'animals')
+        new Icona('fish', 'fas', 'fa-fish', 'animals'),
+        new Icona('cheese', 'fas', 'fa-cheese', 'food'),
+        new Icona('bacon', 'fas', 'fa-bacon', 'food'),
+        new Icona('carrot', 'fas', 'fa-carrot', 'food'),
+        new Icona('baby', 'fas', 'fa-baby', 'people'),
+        new Icona('child', 'fas', 'fa-child', 'people'),
+        new Icona('female', 'fas', 'fa-female', 'people'),
+        new Icona('male', 'fas', 'fa-male', 'people')
     ];
 
 
